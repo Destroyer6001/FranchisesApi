@@ -1,198 +1,64 @@
-🏢 API REST – Gestión de Franquicias, Sucursales y Productos
+# 🏪 API Gestor de Franquicias - Spring Boot
 
-API REST desarrollada con Spring Boot 3.0 y Java 17, diseñada para gestionar franquicias, sucursales y productos de forma sencilla y escalable.
+API RESTful para gestión de franquicias, sucursales y productos desarrollada con Spring Boot 3.2+, PostgreSQL y Lombok.
 
-🛠️ Tecnologías utilizadas
+## 🚀 Características
 
-Java 17
+- Gestión completa de franquicias (CRUD)
+- Administración de sucursales por franquicia
+- Catálogo de productos asociados a sucursales
+- Relaciones jerárquicas: Franquicia → Sucursal → Producto
+- Validación de datos y manejo de errores estandarizado
 
-Spring Boot 3.0
+## 🛠 Tecnologías Utilizadas
 
-Spring Web
+- **Java 17+**
+- **Spring Boot 3.2.x**
+- **PostgreSQL 15+**
+- **Lombok** - Reducción de código boilerplate
+- **Maven** - Gestión de dependencias
+- **Spring Data JPA** - Persistencia de datos
+- **Spring Web** - API REST
 
-Spring Data JPA (Hibernate)
+## 📋 Prerrequisitos
 
-PostgreSQL
+### 1. Java Development Kit (JDK) 17 o superior
+```bash
+java -version
+```
 
-Maven
+### 2. Maven 3.8+
+```bash
+mvn -v
+```
 
-Lombok
+### 3. Git
+```bash
+git --version
+```
 
-Validaciones con Spring Boot
+## ⚙️ Configuración del Entorno
 
-Swagger / OpenAPI
+### 1. Clonar el Repositorio
+```bash
+https://github.com/Destroyer6001/FranchisesApi.git
+cd gestor-franquicias-api
+```
 
-📋 Requisitos previos
+### 2. Configurar la Aplicación
 
-Antes de iniciar, asegúrate de tener instalado:
+Editar `src/main/resources/application.properties` con las configuraciones necesarias.
 
-Java JDK 17
+### 3. Ejecutar la Aplicación
 
-Maven 3.8+
-
-PostgreSQL 14+
-
-Git
-
-IDE recomendado: IntelliJ IDEA, Eclipse o VS Code
-
-⚙️ Instalación y configuración
-1. Clonar el proyecto
-git clone https://github.com/TU_USUARIO/TU_REPO.git
-cd TU_REPO
-
-2. Configurar base de datos PostgreSQL
-CREATE DATABASE tododatabase_kuw7;
-CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
-GRANT ALL PRIVILEGES ON DATABASE tododatabase_kuw7 TO myuser;
-
-3. Configurar application.properties
-# Datos de la Base de Datos
-spring.datasource.url=jdbc:postgresql://localhost:5432/tododatabase_kuw7
-spring.datasource.username=myuser
-spring.datasource.password=mypassword
-spring.datasource.driver-class-name=org.postgresql.Driver
-
-# JPA / Hibernate
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-
-# Puerto del servidor
-server.port=8080
-
-4. Dependencias Maven (pom.xml)
-<dependencies>
-    <!-- Spring Boot Starter Web -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <!-- Spring Boot Starter Data JPA -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-
-    <!-- PostgreSQL Driver -->
-    <dependency>
-        <groupId>org.postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>42.6.0</version>
-    </dependency>
-
-    <!-- Lombok -->
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <optional>true</optional>
-    </dependency>
-
-    <!-- Validaciones -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-
-    <!-- Swagger / OpenAPI -->
-    <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-ui</artifactId>
-        <version>2.1.0</version>
-    </dependency>
-
-    <!-- Test -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
-</dependencies>
-
-🚀 Ejecutar la aplicación
-
-Limpiar y construir proyecto:
-
-mvn clean install
-
-
-Ejecutar aplicación:
-
+```bash
 mvn spring-boot:run
+```
 
+La aplicación estará disponible en: `http://localhost:8088/api`
 
-API disponible en: http://localhost:8080
+## 🔗 Enlace para Clonar
 
-Swagger UI: http://localhost:8080/swagger-ui.html
-
-📌 Endpoints principales
-Recurso	Método	Descripción
-/franchises	GET/POST/PUT/DELETE	CRUD de franquicias
-/branches	GET/POST/PUT/DELETE	CRUD de sucursales
-/products	GET/POST/PUT/DELETE	CRUD de productos
-✅ Comprobación
-curl http://localhost:8080/franchises
-
-
-Swagger UI mostrará todos los endpoints documentados e interactivos.
-
-📝 Notas adicionales
-
-Todos los cambios en las entidades se sincronizan automáticamente con la base de datos gracias a spring.jpa.hibernate.ddl-auto=update.
-
-Asegúrate de que PostgreSQL esté corriendo antes de levantar la API.
-
-Se puede cambiar el puerto del servidor en application.properties si 8080 ya está ocupado.    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-ui</artifactId>
-        <version>2.1.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
-</dependencies>
-
-🚀 Ejecutar la aplicación
-
-Limpiar y compilar proyecto:
-
-mvn clean install
-
-
-Ejecutar aplicación:
-
-mvn spring-boot:run
-
-
-API disponible en: http://localhost:8080
-
-Swagger UI: http://localhost:8080/swagger-ui.html
-
-📌 Endpoints principales
-Recurso	Método	Descripción
-/franchises	GET/POST/PUT/DELETE	CRUD de franquicias
-/branches	GET/POST/PUT/DELETE	CRUD de sucursales
-/products	GET/POST/PUT/DELETE	CRUD de productos
-✅ Comprobación
-
-Verifica que la API responda correctamente:
-
-curl http://localhost:8080/franchises
-
-
-Swagger UI mostrará todos los endpoints documentados e interactivos.
-
-📝 Notas adicionales
-
-Todos los cambios en las entidades se sincronizan automáticamente con la base de datos gracias a spring.jpa.hibernate.ddl-auto=update.
-
-Asegúrate de que PostgreSQL esté corriendo antes de levantar la API.
-
-Se puede cambiar el puerto del servidor en application.properties si 8080 ya está ocupado.
+```bash
+git clone https://github.com/tu-usuario/gestor-franquicias-api.git
+```
