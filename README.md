@@ -1,6 +1,6 @@
 # 🏪 API Gestor de Franquicias - Spring Boot
 
-API RESTful para gestión de franquicias, sucursales y productos desarrollada con Spring Boot 3.2+, PostgreSQL y Lombok.
+API RESTful para gestión de franquicias, sucursales y productos desarrollada con Spring Boot 3.5.9+, PostgreSQL y Lombok.
 
 ## 🚀 Características
 
@@ -41,7 +41,7 @@ git --version
 
 ### 1. Clonar el Repositorio
 ```bash
-https://github.com/Destroyer6001/FranchisesApi.git
+git clone https://github.com/Destroyer6001/FranchisesApi.git
 cd gestor-franquicias-api
 ```
 
@@ -60,5 +60,5 @@ La aplicación estará disponible en: `http://localhost:8088/api`
 ## 🔗 Enlace para Clonar
 
 ```bash
-git clone https://github.com/tu-usuario/gestor-franquicias-api.git
+git clone  https://github.com/Destroyer6001/FranchisesApi.git
 ```
