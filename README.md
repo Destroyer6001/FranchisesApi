@@ -13,8 +13,8 @@ API RESTful para gestión de franquicias, sucursales y productos desarrollada co
 ## 🛠 Tecnologías Utilizadas
 
 - **Java 17+**
-- **Spring Boot 3.2.x**
-- **PostgreSQL 15+**
+- **Spring Boot 3.5.9x**
+- **PostgreSQL 14+**
 - **Lombok** - Reducción de código boilerplate
 - **Maven** - Gestión de dependencias
 - **Spring Data JPA** - Persistencia de datos
