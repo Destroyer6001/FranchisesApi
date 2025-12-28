@@ -1,87 +1,52 @@
-README - API de Gestión de Franquicias, Sucursales y Productos
-Descripción
+🏢 API REST – Gestión de Franquicias, Sucursales y Productos
 
-Esta API está desarrollada con Spring Boot 3 y gestiona:
+API REST desarrollada con Spring Boot 3.0 y Java 17, diseñada para gestionar franquicias, sucursales y productos de forma sencilla y escalable.
 
-Franquicias
+🛠️ Tecnologías utilizadas
 
-Sucursales (Branches)
+Java 17
 
-Productos
+Spring Boot 3.0
 
-Permite operaciones CRUD y mantiene relaciones entre entidades.
+Spring Web
 
-Requisitos Previos
-1. Java JDK 17 o superior
+Spring Data JPA (Hibernate)
 
-Descarga:
+PostgreSQL
 
-Adoptium
- (OpenJDK)
+Maven
 
-Oracle
+Lombok
 
-Configuración de variables de entorno:
+Validaciones con Spring Boot
 
-Windows
+Swagger / OpenAPI
 
-setx JAVA_HOME "C:\Program Files\Java\jdk-17.0.x"
-setx PATH "%JAVA_HOME%\bin;%PATH%"
+📋 Requisitos previos
 
+Antes de iniciar, asegúrate de tener instalado:
 
-Linux / Mac
+Java JDK 17
 
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
+Maven 3.8+
 
+PostgreSQL 14+
 
-Verifica la instalación:
+Git
 
-java -version
+IDE recomendado: IntelliJ IDEA, Eclipse o VS Code
 
-2. Maven 3.8 o superior
+⚙️ Instalación y configuración
+1. Clonar el proyecto
+git clone https://github.com/TU_USUARIO/TU_REPO.git
+cd TU_REPO
 
-Descarga: Apache Maven
-
-Configuración de variables de entorno:
-
-Windows
-
-setx M2_HOME "C:\apache-maven-3.9.5"
-setx PATH "%M2_HOME%\bin;%PATH%"
-
-
-Linux / Mac
-
-export M2_HOME=/opt/maven
-export PATH=$M2_HOME/bin:$PATH
-
-
-Verifica la instalación:
-
-mvn -version
-
-3. PostgreSQL 14 o superior
-
-Instala desde: PostgreSQL Downloads
-
-Crear base de datos y usuario:
-
+2. Configurar base de datos PostgreSQL
 CREATE DATABASE tododatabase_kuw7;
 CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
 GRANT ALL PRIVILEGES ON DATABASE tododatabase_kuw7 TO myuser;
 
-
-Verifica que puedas conectarte:
-
-psql -U myuser -d tododatabase_kuw7
-
-Clonar el proyecto
-git clone https://github.com/TU_USUARIO/TU_REPO.git
-cd TU_REPO
-
-Configuración del Proyecto
-1. Archivo application.properties
+3. Configurar application.properties
 # Datos de la Base de Datos
 spring.datasource.url=jdbc:postgresql://localhost:5432/tododatabase_kuw7
 spring.datasource.username=myuser
@@ -96,48 +61,38 @@ spring.jpa.properties.hibernate.format_sql=true
 # Puerto del servidor
 server.port=8080
 
-2. Dependencias Maven (pom.xml)
+4. Dependencias Maven (pom.xml)
+
+Incluye las siguientes dependencias principales:
+
 <dependencies>
-    <!-- Spring Boot Starter Web -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-
-    <!-- Spring Boot Starter Data JPA -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-
-    <!-- PostgreSQL Driver -->
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>42.6.0</version>
     </dependency>
-
-    <!-- Lombok -->
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <optional>true</optional>
     </dependency>
-
-    <!-- Validaciones -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
-
-    <!-- OpenAPI / Swagger -->
     <dependency>
         <groupId>org.springdoc</groupId>
         <artifactId>springdoc-openapi-ui</artifactId>
         <version>2.1.0</version>
     </dependency>
-
-    <!-- Test -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
@@ -145,26 +100,40 @@ server.port=8080
     </dependency>
 </dependencies>
 
-Compilar y Ejecutar
-1. Limpiar y construir proyecto
+🚀 Ejecutar la aplicación
+
+Limpiar y compilar proyecto:
+
 mvn clean install
 
-2. Ejecutar aplicación
+
+Ejecutar aplicación:
+
 mvn spring-boot:run
 
 
-La API estará disponible en: http://localhost:8080
+API disponible en: http://localhost:8080
 
-Documentación Swagger: http://localhost:8080/swagger-ui.html
+Swagger UI: http://localhost:8080/swagger-ui.html
 
-Endpoints Principales
+📌 Endpoints principales
 Recurso	Método	Descripción
 /franchises	GET/POST/PUT/DELETE	CRUD de franquicias
 /branches	GET/POST/PUT/DELETE	CRUD de sucursales
 /products	GET/POST/PUT/DELETE	CRUD de productos
-Comprobación
+✅ Comprobación
+
+Verifica que la API responda correctamente:
+
+curl http://localhost:8080/franchises
 
 
-Asegúrate de tener PostgreSQL corriendo antes de levantar la API.
+Swagger UI mostrará todos los endpoints documentados e interactivos.
 
-Puedes cambiar el puerto del servidor en application.properties si 8080 ya está ocupado.
+📝 Notas adicionales
+
+Todos los cambios en las entidades se sincronizan automáticamente con la base de datos gracias a spring.jpa.hibernate.ddl-auto=update.
+
+Asegúrate de que PostgreSQL esté corriendo antes de levantar la API.
+
+Se puede cambiar el puerto del servidor en application.properties si 8080 ya está ocupado.
