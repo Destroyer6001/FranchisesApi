@@ -62,29 +62,88 @@ spring.jpa.properties.hibernate.format_sql=true
 server.port=8080
 
 4. Dependencias Maven (pom.xml)
-
-Incluye las siguientes dependencias principales:
-
 <dependencies>
+    <!-- Spring Boot Starter Web -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
+    <!-- Spring Boot Starter Data JPA -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
+
+    <!-- PostgreSQL Driver -->
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>42.6.0</version>
     </dependency>
+
+    <!-- Lombok -->
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <optional>true</optional>
     </dependency>
+
+    <!-- Validaciones -->
     <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <!-- Swagger / OpenAPI -->
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <version>2.1.0</version>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+🚀 Ejecutar la aplicación
+
+Limpiar y construir proyecto:
+
+mvn clean install
+
+
+Ejecutar aplicación:
+
+mvn spring-boot:run
+
+
+API disponible en: http://localhost:8080
+
+Swagger UI: http://localhost:8080/swagger-ui.html
+
+📌 Endpoints principales
+Recurso	Método	Descripción
+/franchises	GET/POST/PUT/DELETE	CRUD de franquicias
+/branches	GET/POST/PUT/DELETE	CRUD de sucursales
+/products	GET/POST/PUT/DELETE	CRUD de productos
+✅ Comprobación
+curl http://localhost:8080/franchises
+
+
+Swagger UI mostrará todos los endpoints documentados e interactivos.
+
+📝 Notas adicionales
+
+Todos los cambios en las entidades se sincronizan automáticamente con la base de datos gracias a spring.jpa.hibernate.ddl-auto=update.
+
+Asegúrate de que PostgreSQL esté corriendo antes de levantar la API.
+
+Se puede cambiar el puerto del servidor en application.properties si 8080 ya está ocupado.    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
